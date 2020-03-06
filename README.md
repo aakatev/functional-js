@@ -6,6 +6,7 @@ Let's say I have 10 bank accounts.
 
 ```javascript
 let accounts = [
+  { id: 0, balance: 122.01 },
   { id: 1, balance: 15.111 },
   { id: 2, balance: 7703.5 },
   { id: 3, balance: 9333.2 },
@@ -36,10 +37,10 @@ What if I don't care about balances, but only need the id's?
 let ids = accounts.map(account => account.id);
 ```
 
-Finally, I can sort accounts by the balances in decreasing oreder.
+Finally, I can sort accounts by the balances in decreasing order.
 
 ```javascript
-accounts.sort((first, second) => first.balance < second.balance);
+let sortedAccounts = accounts.sort((first, second) => first.balance < second.balance);
 ```
 
 Amazing, is not it? Now let's use ES6 destructuring operator!
@@ -60,6 +61,26 @@ function printArray(array) {
     printArray(tail);
   }
 }
+
+printArray(numbers);
 ```
+
+Using destructuring operator, I can also create variadic functions, similar to ones in LISP.
+
+```javascript
+function variadicPrint(...array) {
+  array.forEach(element => console.log(element))
+}
+```
+
+All the following calls to the function above are legal.
+
+```javascript
+variadicPrint(0, 1, 2, 3);
+variadicPrint(0);
+variadicPrint();
+variadicPrint("Hello", "world");
+```
+
 
 ### TODO add more Destructing Operators, and Closures examples
